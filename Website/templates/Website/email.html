@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: radial-gradient(circle at top, #0f0f1e, #050507);
+            color: #fff;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 45px;
+            color: #00eaff;
+        }
+
+        .contact-container {
+            width: 60%;
+            margin: auto;
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 25px rgba(0,255,255,0.2);
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+            font-size: 16px;
+        }
+
+        textarea {
+            height: 130px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #00eaff;
+            border: none;
+            border-radius: 10px;
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background: #00bcd4;
+            box-shadow: 0 0 15px #00eaff;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Contact.</h1>
+
+    <div class="contact-container">
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>Your Name</label>
+            <input type="text" name="name" placeholder="What's your good name?" required>
+
+            <label>Your Email</label>
+            <input type="email" name="email" placeholder="What's your web address" required>
+
+            <label>Your Message</label>
+            <textarea name="message" placeholder="What you want to say?" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+</body>
+</html>
