@@ -2,4 +2,3 @@ Django
 gunicorn
 whitenoise
 psycopg2-binary
-

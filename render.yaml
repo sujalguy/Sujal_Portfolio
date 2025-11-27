@@ -4,11 +4,17 @@ services:
     env: python
     region: singapore
     plan: free
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn yourprojectname.wsgi:application"
+
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+
+    startCommand: |
+      gunicorn Portfolio.wsgi:application
+
     envVars:
       - key: DJANGO_SETTINGS_MODULE
-        value: yourprojectname.settings
+        value: Portfolio.settings
       - key: SECRET_KEY
         generateValue: true
       - key: DEBUG
